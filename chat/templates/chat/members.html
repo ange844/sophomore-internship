@@ -1,0 +1,22 @@
+{% extends "chat/base.html" %}
+{% load static %}
+{% block title %}Members - Internal Chat{% endblock %}
+{% block content %}
+<div class="page">
+  <main class="card" data-conversation-id="{{ conversation_id }}">
+    <header class="page-head">
+      <a class="back" href="/chat/?c={{ conversation_id }}">&larr; Back to the conversation</a>
+    </header>
+    <h1 id="title">Members</h1>
+    <p id="note" class="note"></p>
+    <ul id="members-list" class="members-list"></ul>
+    <section id="add-members" class="hidden">
+      <h2>Add people</h2>
+      <div id="picker"></div>
+    </section>
+    <p id="error" class="error" role="alert"></p>
+    <button id="leave-btn" type="button" class="danger hidden">Leave group</button>
+  </main>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{% static 'chat/members.js' %}"></script>{% endblock %}

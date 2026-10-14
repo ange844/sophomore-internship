@@ -1,0 +1,19 @@
+{% extends "chat/base.html" %}
+{% load static %}
+{% block title %}Log in - Internal Chat{% endblock %}
+{% block content %}
+<section class="login">
+  <form id="login-form" class="card narrow">
+    <h1>Internal Chat</h1>
+    <label class="field">Username
+      <input id="login-username" autocomplete="username" required autofocus>
+    </label>
+    <label class="field">Password
+      <input id="login-password" type="password" autocomplete="current-password" required>
+    </label>
+    <p id="login-error" class="error" role="alert"></p>
+    <button type="submit">Log in</button>
+  </form>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{% static 'chat/login.js' %}"></script>{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "chat/base.html" %}
+{% load static %}
+{% block title %}New chat - Internal Chat{% endblock %}
+{% block content %}
+<div class="page">
+  <main class="card">
+    <header class="page-head">
+      <a class="back" href="/chat/">&larr; Back to chats</a>
+    </header>
+    <h1>New chat</h1>
+    <p class="note">Search for a colleague to start a one-to-one conversation.</p>
+    <div id="picker"></div>
+    <p id="error" class="error" role="alert"></p>
+  </main>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{% static 'chat/new_chat.js' %}"></script>{% endblock %}

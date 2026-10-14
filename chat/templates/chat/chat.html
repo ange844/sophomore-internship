@@ -1,0 +1,46 @@
+{% extends "chat/base.html" %}
+{% load static %}
+{% block title %}Chats - Internal Chat{% endblock %}
+{% block content %}
+<section class="app">
+  <aside class="sidebar">
+    <header class="sidebar-header">
+      <strong>{{ user.username }}</strong>
+      <button id="logout-btn" class="link-btn" type="button">Log out</button>
+    </header>
+    <div class="sidebar-actions">
+      <a class="btn" href="/chat/new/">New chat</a>
+      <a class="btn secondary" href="/chat/new-group/">New group</a>
+      <a class="btn secondary" href="/chat/people/">People</a>
+    </div>
+    <ul id="conversation-list" class="conversation-list"></ul>
+  </aside>
+
+  <main class="chat">
+    <header class="chat-header">
+      <h2 id="chat-title">Select a conversation</h2>
+      <span id="connection-status" class="status"></span>
+      <a id="members-link" class="link-btn hidden" href="#">Members</a>
+    </header>
+
+    <div id="messages" class="messages">
+      <p id="placeholder" class="placeholder">Choose a conversation on the left to start chatting.</p>
+      <button id="load-older" class="link-btn hidden" type="button">Load older messages</button>
+      <div id="message-list"></div>
+    </div>
+
+    <p id="chat-error" class="chat-error hidden" role="alert"></p>
+    <div id="drop-hint" class="drop-hint hidden">Drop a file here to send it</div>
+    <form id="message-form" class="message-form hidden">
+      <input id="file-input" type="file" class="hidden">
+      <button id="attach-btn" type="button" class="icon-btn" title="Send a file or image" aria-label="Attach a file"></button>
+      <input id="message-input" autocomplete="off" placeholder="Type a message...">
+      <span id="rec-timer" class="rec hidden"><span class="rec-dot"></span><span id="rec-time">Recording 0:00</span></span>
+      <button id="cancel-voice" type="button" class="icon-btn hidden" title="Cancel recording" aria-label="Cancel recording"></button>
+      <button id="voice-btn" type="button" class="icon-btn" title="Record a voice note" aria-label="Record a voice note"></button>
+      <button id="send-btn" type="submit">Send</button>
+    </form>
+  </main>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{% static 'chat/chat.js' %}"></script>{% endblock %}

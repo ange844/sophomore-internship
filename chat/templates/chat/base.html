@@ -1,0 +1,17 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Internal Chat{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'chat/style.css' %}">
+</head>
+<body class="{% block body_class %}{% endblock %}"{% if user.is_authenticated %} data-user-id="{{ user.id }}" data-username="{{ user.username }}"{% endif %}>
+  {% csrf_token %}{# makes sure the CSRF cookie exists for every page #}
+  {% block content %}{% endblock %}
+  <script src="{% static 'chat/common.js' %}"></script>
+  <script src="{% static 'chat/icons.js' %}"></script>
+  <script src="{% static 'chat/presence.js' %}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

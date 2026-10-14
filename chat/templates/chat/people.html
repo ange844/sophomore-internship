@@ -1,0 +1,25 @@
+{% extends "chat/base.html" %}
+{% load static %}
+{% block title %}People - Internal Chat{% endblock %}
+{% block content %}
+<div class="page">
+  <main class="card">
+    <header class="page-head">
+      <a class="back" href="/chat/">&larr; Back to chats</a>
+    </header>
+    <h1>People</h1>
+    <p class="note">See who is online. Click a colleague to open your chat with them.</p>
+    <input id="people-search" placeholder="Search by name..." autocomplete="off">
+    <section>
+      <h2 id="online-title">Online</h2>
+      <ul id="online-list" class="people-list"></ul>
+    </section>
+    <section>
+      <h2 id="offline-title">Offline</h2>
+      <ul id="offline-list" class="people-list"></ul>
+    </section>
+    <p id="error" class="error" role="alert"></p>
+  </main>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{% static 'chat/people.js' %}"></script>{% endblock %}

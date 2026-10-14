@@ -1,0 +1,22 @@
+{% extends "chat/base.html" %}
+{% load static %}
+{% block title %}New group - Internal Chat{% endblock %}
+{% block content %}
+<div class="page">
+  <main class="card">
+    <header class="page-head">
+      <a class="back" href="/chat/">&larr; Back to chats</a>
+    </header>
+    <h1>New group</h1>
+    <label class="field">Group name
+      <input id="group-name" maxlength="100" autocomplete="off" autofocus>
+    </label>
+    <div id="group-chips" class="chips"></div>
+    <p class="note">Pick the people to add. You will be the group's admin.</p>
+    <div id="picker"></div>
+    <p id="error" class="error" role="alert"></p>
+    <button id="create-group-btn" type="button">Create group</button>
+  </main>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{% static 'chat/new_group.js' %}"></script>{% endblock %}
